@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block b1 %}
+    {{ books }}
+    <table border="1">
+    <caption>图书详情</caption>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>ISBN</td>
+                <TD>SUMMARY</TD>
+                <TD>AUTHORID</TD>
+            </tr>
+        </thead>
+        <TBODY>
+            {% for book in books %}
+                <tr>
+                    <td><a href="{% url 'book:bookDetail'  book.id %}"> {{ book.id }}</a></td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.summary }}</td>
+                    <td>{{ book.authorID.name }}</td>
+                </tr>
+            {% endfor %}
+        </TBODY>
+    </table>
+{% endblock b1 %}
